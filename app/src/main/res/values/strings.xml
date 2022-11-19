@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Ws Work</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="preencha_os_dados">Preencha os dados , e efetue o registro da sua compra.</string>
+    <string name="email">email</string>
+    <string name="Password">senha</string>
+    <string name="nome">Nome</string>
+    <string name="Numero">numero</string>
+    <string name="eu_quero">EU QUERO</string>
+    <string name="error">Ocorreu um erro.</string>
+    <string name="itens_do_veiculo">Itens do Veículo</string>
+    <string name="cifrao">R$</string>
+    <string name="modelo">Modelo:</string>
+    <string name="cor">Cor:</string>
+    <string name="ano">Ano:</string>
+    <string name="portas">Portas:</string>
+    <string name="nome_error">Nome precisa ter mais de 3 caracteres</string>
+    <string name="numero_error">Numero precisa ter no minimo de 8 numeros</string>
+    <string name="email_error">Verifique seu email</string>
+    <string name="register_input_layou_error_invalid_name">Nome Invalido</string>
+    <string name="register_input_layou_error_invalid_numero">Numero Invalido</string>
+    <string name="register_input_layou_error_invalid_email">email Invalido</string>
+
+
+</resources>

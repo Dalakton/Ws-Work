@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blu"
+    tools:context=".ui.register.RegisterFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blu_dark"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Ws Work"
+        app:titleTextColor="@color/white" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/itens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/itens_do_veiculo"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/cifrao"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_valor_carro"
+        app:layout_constraintTop_toTopOf="@id/text_valor_carro" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_valor_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itens"
+        tools:text="10.000" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_marca_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itens"
+        tools:text="FORD" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/modelo"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_modelo_carro"
+        app:layout_constraintStart_toStartOf="@id/text_marca_carro"
+        app:layout_constraintTop_toTopOf="@id/text_modelo_carro" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_modelo_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/text_marca_carro"
+        app:layout_constraintTop_toBottomOf="@id/text_marca_carro"
+        tools:text="COROLLA XEI" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_combustivel_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/text_valor_carro"
+        app:layout_constraintTop_toTopOf="@id/text_modelo_carro"
+        tools:text="Flex" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/cor"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_cor_carro" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_cor_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_modelo_carro"
+        tools:text="Azul" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/ano"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_ano_carro"
+        app:layout_constraintTop_toTopOf="@id/text_ano_carro" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_ano_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_cor_carro"
+        tools:text="2016" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/portas"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/text_numero_portas_carro"
+        app:layout_constraintTop_toTopOf="@id/text_numero_portas_carro" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_numero_portas_carro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/text_valor_carro"
+        app:layout_constraintTop_toTopOf="@id/text_ano_carro"
+        tools:text="2" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_preencha_dados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/preencha_os_dados"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/text_numero_portas_carro"
+        app:layout_constraintStart_toStartOf="@id/text_cor_carro"
+        app:layout_constraintTop_toTopOf="@id/text_ano_carro" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_nome"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/nome"
+        android:inputType="textPersonName"
+        app:boxBackgroundColor="@color/white"
+        app:helperText="*Nome deve conter no mínimo 3 caracteres."
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_preencha_dados"
+        app:startIconDrawable="@drawable/ic_account"
+        app:startIconTint="@color/blu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_nome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_numero"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/Numero"
+        android:maxLength="11"
+        app:boxBackgroundColor="@color/white"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
+        app:helperText="*Numero deve conter no mínimo 8 números."
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/textInput_nome"
+        app:layout_constraintStart_toStartOf="@id/textInput_nome"
+        app:layout_constraintTop_toBottomOf="@id/textInput_nome"
+        app:prefixText="+55"
+        app:startIconDrawable="@drawable/ic_call"
+        app:startIconTint="@color/blu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/email"
+        app:boxBackgroundColor="@color/white"
+        app:helperText="Verifique seu email,e  veja ele contém os caracteres especiais."
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/textInput_numero"
+        app:layout_constraintStart_toStartOf="@id/textInput_numero"
+        app:layout_constraintTop_toBottomOf="@id/textInput_numero"
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/blu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_entrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/eu_quero"
+        android:textColor="@color/blu"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInput_email">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
