@@ -12,9 +12,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.material.textfield.TextInputLayout
+import me.project.wswork.data.workmanager.LeadWork
 import me.project.wswork.databinding.FragmentRegisterBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.concurrent.TimeUnit
 
 
 class RegisterFragment : Fragment() {
@@ -40,6 +44,7 @@ class RegisterFragment : Fragment() {
 
         setDataCar()
         setToolbar()
+        inviteLead()
 
 
         binding.buttonEntrar.setOnClickListener {
@@ -47,6 +52,14 @@ class RegisterFragment : Fragment() {
             observeState()
         }
 
+    }
+
+    private fun inviteLead() {
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<LeadWork>(
+            15, TimeUnit.MINUTES
+        ).build()
+
+        WorkManager.getInstance(requireContext()).enqueue(periodicWorkRequest)
     }
 
 
@@ -68,8 +81,8 @@ class RegisterFragment : Fragment() {
                 }
                 is AuthenticatioState.Authenticated -> {
                     binding.editNome.text?.clear()
-                    binding.editNome.text?.clear()
-                    binding.editNome.text?.clear()
+                    binding.editNumero.text?.clear()
+                    binding.editEmail.text?.clear()
 
                 }
             }
@@ -86,8 +99,8 @@ class RegisterFragment : Fragment() {
 
     private fun chekingAndPassingData() {
         val nome = binding.editNome.text.toString().trim()
-        val numero = binding.editNome.text.toString().trim()
-        val email = binding.editNome.text.toString().trim()
+        val numero = binding.editNumero.text.toString().trim()
+        val email = binding.editEmail.text.toString().trim()
         val idCar = dataCar.car.id
 
         viewModel.authentication(nome, numero, email, idCar)

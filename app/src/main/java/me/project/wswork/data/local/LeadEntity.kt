@@ -3,7 +3,7 @@ package me.project.wswork.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import me.project.wswork.ui.RegistratioViewParams
+import me.project.wswork.ui.Lead
 
 @Entity(tableName = "leadEntity")
 data class LeadEntity(
@@ -15,10 +15,9 @@ data class LeadEntity(
     val idCar: Int
 )
 
-    // estou convertendo o registration para um userEntity
-fun RegistratioViewParams.toLeadentity(): LeadEntity{
-    return  with(this){
-        LeadEntity(
+    // estou convertendo o lead para um leadEntity
+fun Lead.toLeadentity(): LeadEntity{
+    return LeadEntity(
             nome = this.nome,
             numero = this.numero,
             email = this.email,
@@ -26,4 +25,3 @@ fun RegistratioViewParams.toLeadentity(): LeadEntity{
 
         )
     }
-}

@@ -70,6 +70,10 @@ dependencies {
     //COROUTINES
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
+    // KOIN
     implementation "io.insert-koin:koin-android:3.2.3"
+    
+    //WORMANAGER
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
 
 }

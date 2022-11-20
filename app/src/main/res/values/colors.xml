@@ -10,5 +10,7 @@
     <color name="blu">#10BEF3</color>
     <color name="blu_dark">#181578</color>
     <color name="green">#27FF3D</color>
+    <color name="green_dark">#3d4c41</color>
+    <color name="bege">#ebc999</color>
 
 </resources>

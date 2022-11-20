@@ -1,9 +1,11 @@
 package me.project.wswork.data.repositories
 
+import androidx.lifecycle.LiveData
 import me.project.wswork.data.local.CarDao
+import me.project.wswork.data.local.LeadEntity
 import me.project.wswork.data.local.toLeadentity
 import me.project.wswork.data.remote.CarsWebService
-import me.project.wswork.ui.RegistratioViewParams
+import me.project.wswork.ui.Lead
 
 /*
 essa classe é que da acesso a nossas fontes de dados, nos ajudando na
@@ -18,8 +20,15 @@ class ResourseCarRepository(
 
     override suspend fun getAllCars() = carWebService.getAllCars()
 
-    override suspend fun insert(registationViewParams: RegistratioViewParams) {
-        val leadEntity = registationViewParams.toLeadentity()
-        dao.insert(leadEntity)
+    override suspend fun insert(lead: Lead) {
+        val lead = lead.toLeadentity()
+        dao.insert(lead)
+    }
+
+    override suspend fun getLeads(): List<LeadEntity> = dao.getLeads()
+
+    override suspend fun inviteLeadsApi(leads: List<LeadEntity>): Boolean {
+        val request = carWebService.setLeads(leads)
+        return request.isSuccessful
     }
 }
