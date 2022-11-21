@@ -19,7 +19,7 @@ data class CarResponse(
     @SerializedName("num_portas")
     val quantidaDePortas: String,
     @SerializedName("valor_fipe")
-    val valorDoCarro: Double,
+    val valorDoCarro: String,
     @SerializedName("cor")
     val cor: String,
     @SerializedName("timestamp_cadastro")

@@ -2,6 +2,8 @@ package me.project.wswork.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -12,18 +14,24 @@ import java.io.IOException
 
 class CarsViewModel(private val repository: CarsRepository) : ViewModel() {
 
-    private val _carsList = MutableStateFlow<ResourceStateCar<CarResponse>>(ResourceStateCar.Loading())
+    //usando o stateFlow e mutable ferramentas perfeitas para emitir atualizações de estado
+    //de maneira otimizada
+    private val _carsList =
+        MutableStateFlow<ResourceStateCar<CarResponse>>(ResourceStateCar.Loading())
     val carList: StateFlow<ResourceStateCar<CarResponse>> = _carsList
 
     init {
         getAllCars()
     }
 
+    // escopo de coroutines para livrar a main thread de travamentos
+    //lançando a requisição a api em outra thread.
 
     private fun getAllCars() = viewModelScope.launch {
         getResponse()
 
     }
+
     // função que pega a resposta da api , joga para a função de tratamento e retorna a resposta
     private suspend fun getResponse() {
         try {
@@ -31,13 +39,14 @@ class CarsViewModel(private val repository: CarsRepository) : ViewModel() {
             _carsList.value = handleResponse(response)
         } catch (t: Throwable) {
             when (t) {
-                // Erros genericos que podem acontecer
+                // Erros genericos que podem acontecer.
                 is IOException -> _carsList.value =
                     ResourceStateCar.Error("Erro de conecão com a internet")
                 else -> _carsList.value = ResourceStateCar.Error("Falha na conexão de dados")
             }
         }
     }
+
     // função de tratamento da resposata da api
     // caso sendo .sucesso envio o resultado e o estado.
     private fun handleResponse(response: Response<List<CarResponse>>): ResourceStateCar<CarResponse> {

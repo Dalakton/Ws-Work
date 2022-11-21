@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: CarsViewModel by viewModel()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +45,9 @@ class HomeFragment : Fragment() {
         colletObserve()
     }
 
+    //Observando e coletando o status da requisição da api para da sua devida colocação
+    //caso seja sucesso vamos fazer o adaptamento ao recycler view e inserir os dados
+    //em seu devido lugar, e desabilitaremos a progress bar
     private fun colletObserve() = lifecycleScope.launch {
         viewModel.carList.collect { resource ->
             when (resource) {
@@ -52,8 +56,10 @@ class HomeFragment : Fragment() {
                         binding.progressCircular.visibility = View.INVISIBLE
                         val carsAdapter = CarsAdapter(it)
                         binding.recyclerCars.adapter = carsAdapter
+
                     }
                 }
+                //caso seja erro a progress bar sera desabilitada e sera nos dado uma mensagem de erro
                 is ResourceStateCar.Error -> {
                     resource.message?.let {
                         binding.progressCircular.visibility = View.INVISIBLE
@@ -61,6 +67,7 @@ class HomeFragment : Fragment() {
                         Log.i("homeFragment", "Error")
                     }
                 }
+                // em caso de loading será visivel a nossa progress bar
                 is ResourceStateCar.Loading -> {
                     binding.progressCircular.visibility = View.VISIBLE
 
@@ -69,6 +76,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    // dados opcionais do recyclerView
     private fun optionsRecycler() {
         binding.recyclerCars.setHasFixedSize(true)
         binding.recyclerCars.layoutManager = LinearLayoutManager(requireContext())

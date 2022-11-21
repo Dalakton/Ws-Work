@@ -1,24 +1,20 @@
 package me.project.wswork.data.remote
 
-import androidx.lifecycle.LiveData
-import me.project.wswork.data.LeadRequest
 import me.project.wswork.data.local.LeadEntity
 import me.project.wswork.data.model.CarResponse
 import me.project.wswork.util.Constants
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface CarsWebService {
 
     @GET(Constants.ENDPOINT)
     suspend fun getAllCars(): Response<List<CarResponse>>
 
-    @POST("cars/leads")
-    suspend fun setLeads(@Body lead: List<LeadEntity>): Response<LeadRequest>
+    @POST(Constants.POST_API)
+    suspend fun setLeads(@Body lead: List<LeadEntity>): Response<List<LeadEntity>>
 
     companion object {
 

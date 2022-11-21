@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import me.project.wswork.util.Constants
 
 
-@Database(entities = [LeadEntity::class], version = 1, exportSchema = false)
+@Database(entities = [LeadEntity::class], version = 2, exportSchema = false)
 abstract class CarDatabase : RoomDatabase() {
     abstract fun CarDao(): CarDao
 

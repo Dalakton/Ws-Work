@@ -3,7 +3,8 @@ package me.project.wswork.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import me.project.wswork.ui.Lead
+import me.project.wswork.ui.home.Lead
+
 
 @Entity(tableName = "leadEntity")
 data class LeadEntity(
@@ -16,12 +17,12 @@ data class LeadEntity(
 )
 
     // estou convertendo o lead para um leadEntity
-fun Lead.toLeadentity(): LeadEntity{
-    return LeadEntity(
+    fun Lead.toLeadentity(): LeadEntity {
+        return LeadEntity(
             nome = this.nome,
             numero = this.numero,
             email = this.email,
             idCar = this.idCar,
 
-        )
+            )
     }

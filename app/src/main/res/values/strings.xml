@@ -9,6 +9,7 @@
     <string name="Numero">numero</string>
     <string name="eu_quero">EU QUERO</string>
     <string name="error">Ocorreu um erro.</string>
+    <string name="sucesso">Registro feito com sucesso.</string>
     <string name="itens_do_veiculo">Itens do Veículo</string>
     <string name="cifrao">R$</string>
     <string name="modelo">Modelo:</string>

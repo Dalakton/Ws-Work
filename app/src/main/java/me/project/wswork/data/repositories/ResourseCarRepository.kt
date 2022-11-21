@@ -1,16 +1,16 @@
 package me.project.wswork.data.repositories
 
-import androidx.lifecycle.LiveData
 import me.project.wswork.data.local.CarDao
 import me.project.wswork.data.local.LeadEntity
 import me.project.wswork.data.local.toLeadentity
 import me.project.wswork.data.remote.CarsWebService
-import me.project.wswork.ui.Lead
+import me.project.wswork.ui.home.Lead
+import retrofit2.Response
 
 /*
-essa classe é que da acesso a nossas fontes de dados, nos ajudando na
+essa classe é nossa fontes de dados, nos ajudando na
 manutenção e desacoplamento do codigo, caso eu queria mudar os dados
-de acesso ao bando de dados ,é só modificar na classe que esta sendo implementada.
+de acesso a determinada função ,é só modificar na classe que esta sendo implementada.
  */
 
 class ResourseCarRepository(
@@ -27,8 +27,9 @@ class ResourseCarRepository(
 
     override suspend fun getLeads(): List<LeadEntity> = dao.getLeads()
 
-    override suspend fun inviteLeadsApi(leads: List<LeadEntity>): Boolean {
-        val request = carWebService.setLeads(leads)
-        return request.isSuccessful
+    override suspend fun inviteLeadsApi(leads: List<LeadEntity>):Response<List<LeadEntity>> {
+
+        return carWebService.setLeads(leads)
     }
+
 }

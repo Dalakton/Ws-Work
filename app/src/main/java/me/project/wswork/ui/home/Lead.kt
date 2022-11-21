@@ -1,4 +1,4 @@
-package me.project.wswork.ui
+package me.project.wswork.ui.home
 
 import com.google.gson.annotations.SerializedName
 

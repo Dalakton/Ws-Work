@@ -9,21 +9,34 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.project.wswork.data.repositories.CarsRepository
 
-class LeadWork(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+class LeadWork(
+    context: Context,
+    workerParams: WorkerParameters,
+    private val repository: CarsRepository
+) : Worker(context, workerParams) {
 
-    companion object{
-        const val TAG = "TLEADWork"
+
+    // WorkManager ferramenta de agendamento de tarefas em background
+    // nesta feita a cada 15 minutos está tarefa é executada
+    //nos dando a rotina necessaria para o envio dos leads da api.
+    // as configuraçoes e inicialização esta na classe MyAPp
+    override fun doWork(): Result {
+        return try {
+            inviteLead()
+            Result.success()
+        } catch (e: Exception) {
+            Result.failure()
+        }
+
     }
 
+    private fun inviteLead() {
+        CoroutineScope(Dispatchers.Default).launch {
+            val request = repository.getLeads()
+            if (request.isNotEmpty()) {
+                repository.inviteLeadsApi(request)
 
-    override  fun doWork(): Result {
-        CoroutineScope(Dispatchers.IO).launch {
-            val leadList = repository.getLeads()
-            repository.inviteLeadsApi(leadList)
-            Log.i(TAG, "DEU CERTO")
+            }
         }
-        return Result.success()
-        }
-
     }
-
+}

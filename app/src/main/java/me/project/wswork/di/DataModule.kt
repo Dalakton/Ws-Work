@@ -18,7 +18,8 @@ val viewModelModule = module {
     viewModel { CarsViewModel(repository = get()) }
     viewModel { RegisterViewModel(repository = get()) }
 }
-
+// single nos diz que será instanciado so uma vez, e quando sor necessario utilizar da mesma classe
+//nos será retornado da mesma classe , ou sejá não instanciara de novo.
 val repositoryModule = module {
     single<CarsRepository> { ResourseCarRepository(carWebService = get(), dao = get()) }
 }
@@ -30,3 +31,5 @@ val webServiceModule = module {
 val dataBaseModule = module {
     single { CarDatabase.getInstance(androidApplication()).CarDao() }
 }
+
+
